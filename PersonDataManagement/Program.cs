@@ -12,6 +12,7 @@ namespace PersonDataManagement
             List<Person> personDetails = new List<Person>();
             AddRecords(personDetails);
             RetrieveTop2Records_ForAgeLessThan60(personDetails);
+            RetrieveRecords_ForAgeBetween13To18(personDetails);
         }
 
         //UC 1
@@ -30,6 +31,16 @@ namespace PersonDataManagement
         {
             Console.WriteLine("Top 2 persons having age less than 60 : ");
             foreach (Person person in personDetails.FindAll(p => p.Age < 60).Take(2).ToList())
+            {
+                Console.WriteLine("Name : " + person.Name + "\t Age : " + person.Age);
+            }
+        }
+
+        // UC 3
+        private static void RetrieveRecords_ForAgeBetween13To18(List<Person> personDetails)
+        {
+            Console.WriteLine("\nPersons having age between 13 to 18 : ");
+            foreach (Person person in personDetails.FindAll(p => p.Age > 13 && p.Age < 18).ToList())
             {
                 Console.WriteLine("Name : " + person.Name + "\t Age : " + person.Age);
             }
