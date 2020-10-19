@@ -13,6 +13,7 @@ namespace PersonDataManagement
             AddRecords(personDetails);
             RetrieveTop2Records_ForAgeLessThan60(personDetails);
             RetrieveRecords_ForAgeBetween13To18(personDetails);
+            AverageAge(personDetails);
         }
 
         //UC 1
@@ -45,5 +46,13 @@ namespace PersonDataManagement
                 Console.WriteLine("Name : " + person.Name + "\t Age : " + person.Age);
             }
         }
+
+        // UC 4
+        private static void AverageAge(List<Person> personDetails)
+        {
+            double avgAge = personDetails.Average(p => p.Age);
+            Console.WriteLine("\nAverage Age in List : " + avgAge);
+        }
+
     }
 }
